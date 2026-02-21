@@ -11,19 +11,20 @@ from typing import Optional
 
 import requests
 
-from config import (
-    BLACKLIST_KEYWORDS,
+from src.config import (
     CLOB_API_BASE,
     FETCH_DELAY_SECONDS,
     GAMMA_API_BASE,
     MIN_MARKET_VOLUME,
     PRICE_FIDELITY_MINUTES,
 )
-from models import Market, PricePoint
+from src.models import Market, PricePoint
+from src.strategy import is_blacklisted
+from src.utils import parse_datetime
 
 logger = logging.getLogger(__name__)
 
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
 MARKETS_CACHE = DATA_DIR / "markets.json"
 PRICES_DIR = DATA_DIR / "prices"
 
@@ -31,31 +32,6 @@ PRICES_DIR = DATA_DIR / "prices"
 def _ensure_dirs() -> None:
     DATA_DIR.mkdir(exist_ok=True)
     PRICES_DIR.mkdir(exist_ok=True)
-
-
-def _parse_datetime(s: Optional[str]) -> Optional[datetime]:
-    if not s:
-        return None
-    # Strip timezone suffixes for consistent parsing
-    s_clean = s.strip()
-    for fmt in (
-        "%Y-%m-%dT%H:%M:%S.%fZ",
-        "%Y-%m-%dT%H:%M:%SZ",
-        "%Y-%m-%d %H:%M:%S+00",
-        "%Y-%m-%d %H:%M:%S+00:00",
-        "%Y-%m-%dT%H:%M:%S+00:00",
-        "%Y-%m-%d",
-    ):
-        try:
-            return datetime.strptime(s_clean, fmt).replace(tzinfo=timezone.utc)
-        except ValueError:
-            continue
-    return None
-
-
-def _is_blacklisted(question: str, tags: list[str]) -> bool:
-    combined = f"{question} {' '.join(tags)}".lower()
-    return any(kw in combined for kw in BLACKLIST_KEYWORDS)
 
 
 # ---------------------------------------------------------------------------
@@ -171,7 +147,7 @@ def _parse_markets(raw_list: list[dict]) -> list[Market]:
         tags = [t.get("label", "") if isinstance(t, dict) else str(t) for t in tags_raw]
         category = tags[0] if tags else raw.get("groupItemTitle") or "other"
 
-        if _is_blacklisted(question, tags):
+        if is_blacklisted(question, tags):
             continue
 
         # Get clob token IDs — YES token is first
@@ -190,8 +166,8 @@ def _parse_markets(raw_list: list[dict]) -> list[Market]:
         if not winning:
             continue  # Can't determine resolution
 
-        end_date = _parse_datetime(raw.get("endDate"))
-        resolved_at = _parse_datetime(
+        end_date = parse_datetime(raw.get("endDate"))
+        resolved_at = parse_datetime(
             raw.get("resolvedAt") or raw.get("closedTime")
         )
 

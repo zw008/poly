@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Main entry point — run the Polymarket V5.0 High-Turnover Maker-Arb backtest."""
+"""Main entry point — run the Polymarket V5.1 Tail-End Arb backtest."""
 
 from __future__ import annotations
 
@@ -8,9 +8,9 @@ import logging
 import sys
 from pathlib import Path
 
-from analytics import PerformanceAnalyzer, plot_equity_curve
-from backtest_engine import BacktestEngine
-from data_fetcher import fetch_all_price_histories, fetch_resolved_markets
+from src.backtest.analytics import PerformanceAnalyzer, plot_equity_curve
+from src.backtest.engine import BacktestEngine
+from src.backtest.data_fetcher import fetch_all_price_histories, fetch_resolved_markets
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 

@@ -9,7 +9,7 @@ from typing import Optional
 
 import numpy as np
 
-from models import ExitReason, Portfolio, Position
+from src.models import ExitReason, Portfolio, Position
 
 logger = logging.getLogger(__name__)
 

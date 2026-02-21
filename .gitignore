@@ -7,6 +7,15 @@ venv/
 # Cached API data (large, regenerable)
 data/
 
+# Output (regenerable)
+output/
+
+# Logs
+logs/
+
+# Secrets
+.env
+
 # IDE
 .idea/
 .vscode/

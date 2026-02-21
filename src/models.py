@@ -1,4 +1,4 @@
-"""Data models for the backtest system."""
+"""Shared data models for backtest and live trading."""
 
 from __future__ import annotations
 
@@ -25,13 +25,13 @@ class PricePoint:
 @dataclass(frozen=True)
 class Market:
     condition_id: str
-    token_id: str  # YES token
+    token_id: str
     question: str
     category: str
     volume: float
     end_date: datetime
     resolved_at: Optional[datetime]
-    winning_outcome: Optional[str]  # "Yes" / "No" / None
+    winning_outcome: Optional[str]
     slug: str = ""
     tags: list[str] = field(default_factory=list)
 
@@ -42,13 +42,18 @@ class Position:
     tier_name: str
     entry_price: float
     entry_time: datetime
-    shares: float  # dollar amount invested / entry_price
-    investment: float  # dollar amount invested
+    shares: float
+    investment: float
     exit_price: Optional[float] = None
     exit_time: Optional[datetime] = None
     exit_reason: Optional[ExitReason] = None
     fees_paid: float = 0.0
     soft_stop_triggered_at: Optional[datetime] = None
+
+    # Live trading order tracking
+    entry_order_id: str = ""
+    tp_order_id: str = ""
+    exit_order_id: str = ""
 
     @property
     def is_open(self) -> bool:
@@ -58,8 +63,7 @@ class Position:
     def pnl(self) -> float:
         if self.exit_price is None:
             return 0.0
-        gross = (self.exit_price - self.entry_price) * self.shares
-        return gross - self.fees_paid
+        return (self.exit_price - self.entry_price) * self.shares - self.fees_paid
 
     @property
     def pnl_pct(self) -> float:
@@ -95,13 +99,6 @@ class Portfolio:
         return sum(p.investment for p in self.open_positions)
 
     @property
-    def exposure_pct(self) -> float:
-        current_capital = self.cash + self.total_exposure
-        if current_capital <= 0:
-            return 1.0
-        return self.total_exposure / current_capital
-
-    @property
     def current_value(self) -> float:
         return self.cash + self.total_exposure
 
@@ -111,18 +108,26 @@ class Portfolio:
             if p.market.category.lower() == category.lower()
         )
 
-    def exposure_by_category(self, category: str) -> float:
-        return sum(
-            p.investment for p in self.open_positions
-            if p.market.category.lower() == category.lower()
-        )
 
-    def exposure_by_super_category(self, super_cat_keywords: list[str]) -> float:
-        total = 0.0
-        for p in self.open_positions:
-            cat_lower = p.market.category.lower()
-            tags_lower = " ".join(p.market.tags).lower()
-            combined = f"{cat_lower} {tags_lower}"
-            if any(kw in combined for kw in super_cat_keywords):
-                total += p.investment
-        return total
+# ---------------------------------------------------------------------------
+# Live trading order models
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class OrderRequest:
+    """Immutable order intent passed to executor."""
+    token_id: str
+    side: str  # "BUY" or "SELL"
+    price: float
+    size: float
+    order_type: str = "GTC"  # GTC, GTD, FOK, FAK
+    post_only: bool = True
+
+
+@dataclass(frozen=True)
+class OrderResult:
+    """Immutable result from order placement."""
+    order_id: str
+    status: str  # LIVE, MATCHED, CANCELLED, FAILED, DRY_RUN
+    filled_size: float = 0.0
+    avg_fill_price: float = 0.0
