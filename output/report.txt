@@ -1,54 +1,54 @@
 ============================================================
-  POLYMARKET V7.0 SCALPEL BOT — BACKTEST REPORT
+  POLYMARKET V5.1 — BACKTEST REPORT
 ============================================================
 
 --- Portfolio Summary ---
   Initial Capital:    $10,000.00
-  Final Value:        $10,156.84
-  Total Return:       +1.57%
-  Annualized Return:  +21.64%
+  Final Value:        $10,236.38
+  Total Return:       +2.36%
+  Annualized Return:  +32.88%
   Max Drawdown:       0.00%
-  Sharpe Ratio:       6.14
-  Sortino Ratio:      16.00
+  Sharpe Ratio:       -12.36
+  Sortino Ratio:      -23.41
 
 --- Trade Summary ---
-  Total Trades:       105
-  Win Rate:           100.00%
-  Avg Win:            $1.49
+  Total Trades:       271
+  Win Rate:           85.61%
+  Avg Win:            $1.02
   Avg Loss:           $0.00
   Profit Factor:      inf
-  Avg Holding:        4.6 hours
+  Avg Holding:        3.8 hours
   Total Fees Paid:    $0.00
 
 --- By Tier ---
-  Scalpel   trades= 105  winrate=100.0%  pnl=$+156.84  avg_pnl=+2.99%  avg_hold=4.6h
+  TierA     trades= 271  winrate=85.6%  pnl=$+236.38  avg_pnl=+1.74%  avg_hold=3.8h
 
 --- By Exit Reason ---
-  settled_win      count=   2  pnl=$+3.96
-  take_profit      count= 103  pnl=$+152.89
+  settled_win      count=  10  pnl=$+11.12
+  take_profit      count= 261  pnl=$+225.27
 
 --- Top Categories (by trade count) ---
-  other                 trades=   9  winrate=100.0%  pnl=$+11.04
-  February 15           trades=   4  winrate=100.0%  pnl=$+6.16
-  Ellen Degeneres       trades=   3  winrate=100.0%  pnl=$+4.13
-  February 28           trades=   3  winrate=100.0%  pnl=$+4.93
-  February 6            trades=   3  winrate=100.0%  pnl=$+5.33
-  Rupert Murdoch        trades=   3  winrate=100.0%  pnl=$+4.45
-  $200M                 trades=   2  winrate=100.0%  pnl=$+2.64
-  $30M                  trades=   2  winrate=100.0%  pnl=$+3.02
-  30+ Years             trades=   2  winrate=100.0%  pnl=$+3.99
-  4.3%                  trades=   2  winrate=100.0%  pnl=$+3.88
+  other                 trades=  26  winrate=84.6%  pnl=$+19.23
+  February 28           trades=  17  winrate=100.0%  pnl=$+10.41
+  February 15           trades=   8  winrate=100.0%  pnl=$+14.05
+  Somalia               trades=   8  winrate=100.0%  pnl=$+3.65
+  March 31              trades=   6  winrate=16.7%  pnl=$+2.41
+  Jamie Dimon           trades=   5  winrate=40.0%  pnl=$+0.61
+  $100M                 trades=   4  winrate=100.0%  pnl=$+2.09
+  4.3%                  trades=   4  winrate=75.0%  pnl=$+4.60
+  Bernie Sanders        trades=   4  winrate=100.0%  pnl=$+1.47
+  Donald Trump          trades=   4  winrate=100.0%  pnl=$+3.73
 
 --- Sample Trades (last 10) ---
-  [Scalpel] Will Israel strike Gaza on February 15, 2026?       entry=0.970  exit=0.990  pnl=+2.06%  reason=take_profit
-  [Scalpel] T20 World Cup: Afghanistan vs UAE (Game 1) - Compl  entry=0.966  exit=0.990  pnl=+2.48%  reason=take_profit
-  [Scalpel] Will Bitcoin reach $70,000 February 16-22?          entry=0.956  exit=0.990  pnl=+3.56%  reason=take_profit
-  [Scalpel] ChatGPT Full Outage by February 28?                 entry=0.970  exit=0.990  pnl=+2.06%  reason=take_profit
-  [Scalpel] ChatGPT Full Outage by February 28?                 entry=0.970  exit=0.990  pnl=+2.06%  reason=take_profit
-  [Scalpel] MicroStrategy announces >1000 BTC purchase Februar  entry=0.964  exit=0.990  pnl=+2.70%  reason=take_profit
-  [Scalpel] 2026 U.S. Senate Election: Republican Odds under 6  entry=0.952  exit=0.990  pnl=+4.05%  reason=take_profit
-  [Scalpel] Will Yoon Suk Yeol be sentenced to at least 30 yea  entry=0.952  exit=0.990  pnl=+3.99%  reason=take_profit
-  [Scalpel] Will Yoon Suk Yeol be sentenced to at least 30 yea  entry=0.952  exit=0.990  pnl=+3.99%  reason=take_profit
-  [Scalpel] Prince Andrew released by February 20?              entry=0.970  exit=0.990  pnl=+2.06%  reason=take_profit
+  [TierA] Will Hyperliquid dip to $28 in February?            entry=0.950  exit=0.990  pnl=+4.21%  reason=take_profit
+  [TierA] Prince Andrew released by February 20?              entry=0.971  exit=0.990  pnl=+1.96%  reason=take_profit
+  [TierA] Prince Andrew released by February 21?              entry=0.982  exit=0.990  pnl=+0.87%  reason=take_profit
+  [TierA] Will ChatGPT be back in as the #1 Free App in the   entry=0.987  exit=0.990  pnl=+0.35%  reason=take_profit
+  [TierA] Will Crude Oil (CL) hit (HIGH) $66 by end of Febru  entry=0.963  exit=0.990  pnl=+2.86%  reason=take_profit
+  [TierA] Will Crude Oil (CL) hit (HIGH) $66 by end of Febru  entry=0.963  exit=0.990  pnl=+2.86%  reason=take_profit
+  [TierA] Will Trump talk to Keir Starmer in February?        entry=0.986  exit=0.990  pnl=+0.41%  reason=take_profit
+  [TierA] Will Crude Oil (CL) hit (HIGH) $66 by end of Febru  entry=0.972  exit=0.990  pnl=+1.90%  reason=take_profit
+  [TierA] Will Crude Oil (CL) hit (HIGH) $66 by end of Febru  entry=0.972  exit=0.990  pnl=+1.90%  reason=take_profit
+  [TierA] Will ChatGPT be back in as the #1 Free App in the   entry=0.986  exit=0.990  pnl=+0.41%  reason=take_profit
 
 ============================================================
