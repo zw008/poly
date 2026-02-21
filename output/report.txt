@@ -1,0 +1,54 @@
+============================================================
+  POLYMARKET V7.0 SCALPEL BOT — BACKTEST REPORT
+============================================================
+
+--- Portfolio Summary ---
+  Initial Capital:    $10,000.00
+  Final Value:        $10,156.84
+  Total Return:       +1.57%
+  Annualized Return:  +21.64%
+  Max Drawdown:       0.00%
+  Sharpe Ratio:       6.14
+  Sortino Ratio:      16.00
+
+--- Trade Summary ---
+  Total Trades:       105
+  Win Rate:           100.00%
+  Avg Win:            $1.49
+  Avg Loss:           $0.00
+  Profit Factor:      inf
+  Avg Holding:        4.6 hours
+  Total Fees Paid:    $0.00
+
+--- By Tier ---
+  Scalpel   trades= 105  winrate=100.0%  pnl=$+156.84  avg_pnl=+2.99%  avg_hold=4.6h
+
+--- By Exit Reason ---
+  settled_win      count=   2  pnl=$+3.96
+  take_profit      count= 103  pnl=$+152.89
+
+--- Top Categories (by trade count) ---
+  other                 trades=   9  winrate=100.0%  pnl=$+11.04
+  February 15           trades=   4  winrate=100.0%  pnl=$+6.16
+  Ellen Degeneres       trades=   3  winrate=100.0%  pnl=$+4.13
+  February 28           trades=   3  winrate=100.0%  pnl=$+4.93
+  February 6            trades=   3  winrate=100.0%  pnl=$+5.33
+  Rupert Murdoch        trades=   3  winrate=100.0%  pnl=$+4.45
+  $200M                 trades=   2  winrate=100.0%  pnl=$+2.64
+  $30M                  trades=   2  winrate=100.0%  pnl=$+3.02
+  30+ Years             trades=   2  winrate=100.0%  pnl=$+3.99
+  4.3%                  trades=   2  winrate=100.0%  pnl=$+3.88
+
+--- Sample Trades (last 10) ---
+  [Scalpel] Will Israel strike Gaza on February 15, 2026?       entry=0.970  exit=0.990  pnl=+2.06%  reason=take_profit
+  [Scalpel] T20 World Cup: Afghanistan vs UAE (Game 1) - Compl  entry=0.966  exit=0.990  pnl=+2.48%  reason=take_profit
+  [Scalpel] Will Bitcoin reach $70,000 February 16-22?          entry=0.956  exit=0.990  pnl=+3.56%  reason=take_profit
+  [Scalpel] ChatGPT Full Outage by February 28?                 entry=0.970  exit=0.990  pnl=+2.06%  reason=take_profit
+  [Scalpel] ChatGPT Full Outage by February 28?                 entry=0.970  exit=0.990  pnl=+2.06%  reason=take_profit
+  [Scalpel] MicroStrategy announces >1000 BTC purchase Februar  entry=0.964  exit=0.990  pnl=+2.70%  reason=take_profit
+  [Scalpel] 2026 U.S. Senate Election: Republican Odds under 6  entry=0.952  exit=0.990  pnl=+4.05%  reason=take_profit
+  [Scalpel] Will Yoon Suk Yeol be sentenced to at least 30 yea  entry=0.952  exit=0.990  pnl=+3.99%  reason=take_profit
+  [Scalpel] Will Yoon Suk Yeol be sentenced to at least 30 yea  entry=0.952  exit=0.990  pnl=+3.99%  reason=take_profit
+  [Scalpel] Prince Andrew released by February 20?              entry=0.970  exit=0.990  pnl=+2.06%  reason=take_profit
+
+============================================================

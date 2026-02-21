@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Cached API data (large, regenerable)
+data/
+
+# IDE
+.idea/
+.vscode/
+*.swp
